@@ -49,7 +49,7 @@ async def entrypoint(ctx: JobContext):
     session = AgentSession(
         stt=deepgram.STT(model="nova-3", language="en"),
         llm=groq.LLM(model=CLIENT_CONFIG["llm_model"]),
-        tts=elevenlabs.TTS(voice_id=CLIENT_CONFIG["voice_id"]),
+        tts=elevenlabs.TTS(voice_id=CLIENT_CONFIG["voice_id"], auto_mode=True),
         vad=silero.VAD.load(),
     )
 
