@@ -35,7 +35,7 @@ CLIENT_CONFIG = {
         "and try to collect their name and phone number if they want a callback. "
         "Keep responses short and natural, like a real phone conversation."
     ),
-    "voice_id": "21m00Tcm4TlvDq8ikWAM",  # ElevenLabs default voice — badal sakte ho
+    "voice_id": "XAezqB2SuTKEhjCMe7Oy",  # tumhare ElevenLabs account ki verified voice
     "llm_model": "llama-3.3-70b-versatile",  # Groq ka fast + free-tier model
 }
 
