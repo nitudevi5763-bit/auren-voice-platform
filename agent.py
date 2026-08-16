@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 
 from livekit import agents
 from livekit.agents import Agent, AgentSession, JobContext, WorkerOptions, cli
-from livekit.plugins import deepgram, elevenlabs, groq, silero
+from livekit.plugins import deepgram, groq, silero
 
 load_dotenv()
 
@@ -35,7 +35,7 @@ CLIENT_CONFIG = {
         "and try to collect their name and phone number if they want a callback. "
         "Keep responses short and natural, like a real phone conversation."
     ),
-    "voice_id": "XAezqB2SuTKEhjCMe7Oy",  # tumhare ElevenLabs account ki verified voice
+    "voice_model": "aura-2-thalia-en",  # Deepgram ki reliable voice — badal sakte ho
     "llm_model": "llama-3.3-70b-versatile",  # Groq ka fast + free-tier model
 }
 
@@ -49,7 +49,7 @@ async def entrypoint(ctx: JobContext):
     session = AgentSession(
         stt=deepgram.STT(model="nova-3", language="en"),
         llm=groq.LLM(model=CLIENT_CONFIG["llm_model"]),
-        tts=elevenlabs.TTS(voice_id=CLIENT_CONFIG["voice_id"], auto_mode=True),
+        tts=deepgram.TTS(model=CLIENT_CONFIG["voice_model"]),
         vad=silero.VAD.load(),
     )
 
