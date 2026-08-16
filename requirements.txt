@@ -1,0 +1,6 @@
+livekit-agents>=0.11.0
+livekit-plugins-deepgram
+livekit-plugins-elevenlabs
+livekit-plugins-groq
+livekit-plugins-silero
+python-dotenv
